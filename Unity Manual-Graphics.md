@@ -63,8 +63,22 @@ https://docs.unity3d.com/Manual/render-pipelines-feature-comparison.html#shaders
 public RenderPipelineAsset renderPipelineAsset;
 void Start()
 {
-    GraphicsSettings.defaultRenderPipeline = renderPipelineAsset;
+    GraphicsSettings.defaultRenderPipeline = renderPipelineAsset;	//通过Graphic修改
+    QualitySettings.renderPipeline = renderPipelineAsset;			//通过Quality修改
 }
-
 ```
+
+Unity决定激活渲染管线的优先度如下
+
+1、使用质量设置中指定的渲染管线
+
+2、使用图形设置中指定的渲染管线
+
+3、使用内置渲染管线
+
+如果需要使用内置渲染管线，取消质量和图形设置中指定的渲染管线即可
+
+
+
+
 
